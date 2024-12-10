@@ -10,7 +10,6 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -19,7 +18,6 @@ function App() {
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
   );
 }
 

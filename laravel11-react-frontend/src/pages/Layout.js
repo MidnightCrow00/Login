@@ -1,8 +1,11 @@
 import React from 'react'
+import { useContext } from "react";
 import { Link, Outlet } from 'react-router-dom'
+import { AuthContext } from '../contexts/AuthContext'
 
 
 export default function Layout() {
+    const {logout} = useContext(AuthContext)
   return (
     <div className="App">
     <header className="App-header">
@@ -13,13 +16,16 @@ export default function Layout() {
     <nav>
         <ul class="nav">
             <li class="nav-item">
-                <Link to="/" class="nav-link" href="#">Kezdőlap</Link>
+                <Link to="/" class="nav-link">Kezdőlap</Link>
             </li>
             <li class="nav-item">
-                <Link to="/login" class="nav-link" href="#">Bejelentkezés</Link>
+                <Link to="/login" class="nav-link" >Bejelentkezés</Link>
             </li>
             <li class="nav-item">
-                <Link to="/register" class="nav-link" href="#">Regisztráció</Link>
+                <Link to="/register" class="nav-link">Regisztráció</Link>
+            </li>
+            <li class="nav-item">
+                <Link to="/logout" onClick={()=>{logout()}} class="nav-link" >Kijelentkezés</Link>
             </li>
         </ul>
         <Outlet />
